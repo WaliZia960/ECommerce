@@ -14,9 +14,6 @@ namespace ECommerce.Controllers
             return View();
         }
 
-        public ActionResult Login(string name)
-        {
-            return View();
-        }
+       
     }
 }

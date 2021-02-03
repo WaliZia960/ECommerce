@@ -12,7 +12,6 @@ namespace ECommerce.Controllers
         public ActionResult Index()
         {
 
-            string name = "Waleed Zia";
             
 
             return View();
