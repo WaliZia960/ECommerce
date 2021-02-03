@@ -11,6 +11,10 @@ namespace ECommerce.Controllers
         // GET: Test
         public ActionResult Index()
         {
+
+            string name = "Waleed Zia";
+            
+
             return View();
         }
     }
