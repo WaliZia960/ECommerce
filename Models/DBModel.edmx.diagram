@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="46b08785ce03457f9ced8918b2c4450b" Name="Diagram1" ZoomLevel="29">
+        <EntityTypeShape EntityType="ecommerceModel.Tbl_Address_Type" Width="1.5" PointX="17.125" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.Tbl_Contact_Type" Width="1.5" PointX="17.125" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.Tbl_File_Type" Width="1.5" PointX="17.125" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.Tbl_Reg_Mode_Type" Width="1.5" PointX="17.125" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.Tbl_Role_Type" Width="1.5" PointX="17.125" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.Tbl_Status_Type" Width="1.5" PointX="17.125" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.sysdiagram" Width="1.5" PointX="22.125" PointY="8" />
+        <EntityTypeShape EntityType="ecommerceModel.Tbl_Address" Width="1.5" PointX="19.375" PointY="3.75" />
+        <EntityTypeShape EntityType="ecommerceModel.Tbl_Contact" Width="1.5" PointX="19.375" PointY="22.125" />
+        <EntityTypeShape EntityType="ecommerceModel.Tbl_File" Width="1.5" PointX="19.375" PointY="11.125" />
+        <EntityTypeShape EntityType="ecommerceModel.Tbl_Reg_Mode" Width="1.5" PointX="19.375" PointY="8.125" />
+        <EntityTypeShape EntityType="ecommerceModel.Tbl_Role" Width="1.5" PointX="19.375" PointY="14" />
+        <EntityTypeShape EntityType="ecommerceModel.Tbl_Status" Width="1.5" PointX="19.375" PointY="19.5" />
+        <AssociationConnector Association="ecommerceModel.FK__Tbl_Addre__Addre__4316F928" />
+        <AssociationConnector Association="ecommerceModel.FK__Tbl_Conta__Conta__45F365D3" />
+        <AssociationConnector Association="ecommerceModel.FK__Tbl_File__File_T__48CFD27E" />
+        <AssociationConnector Association="ecommerceModel.FK__Tbl_Reg_M__Reg_M__4BAC3F29" />
+        <AssociationConnector Association="ecommerceModel.FK__Tbl_Role__Role_T__4E88ABD4" />
+        <AssociationConnector Association="ecommerceModel.FK__Tbl_Statu__Statu__5165187F" />
+        <EntityTypeShape EntityType="ecommerceModel.Tbl_User" Width="1.5" PointX="11.625" PointY="5.625" />
+        <AssociationConnector Association="ecommerceModel.FK_Tbl_User_Tbl_Address_Type" />
+        <AssociationConnector Association="ecommerceModel.FK_Tbl_User_Tbl_Contact_Type" />
+        <AssociationConnector Association="ecommerceModel.FK_Tbl_User_Tbl_File_Type" />
+        <AssociationConnector Association="ecommerceModel.FK_Tbl_User_Tbl_Reg_Mode" />
+        <AssociationConnector Association="ecommerceModel.FK_Tbl_User_Tbl_Role_Type" />
+        <AssociationConnector Association="ecommerceModel.FK_Tbl_User_Tbl_Status_Type" />
+        <AssociationConnector Association="ecommerceModel.FK_Tbl_User_Tbl_Reg_Mode_Type" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

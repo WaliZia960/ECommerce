@@ -1,0 +1,104 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "StatusManagmentV";
+}
+
+
+
+
+<style>
+    td {
+        background-color: rgb( 26, 32, 53);
+        color: white;
+    }
+
+    a {
+        color: white;
+    }
+
+    .paginate_button {
+        background-color: white;
+        color: black;
+    }
+
+    input {
+        color: white;
+    }
+</style>
+
+
+<br />
+<br />
+<br />
+
+
+<div class="container">
+    <div class="card card-nav-tabs">
+        <div class="card-header card-header-primary">
+            Status Managment
+        </div>
+        <div class="card-body">
+            <h4 class="card-title" id="Lbl_Add">Add Status Type</h4>
+            <h4 class="card-title" id="Lbl_Edit">Edit Status Type</h4>
+
+            <div class="form-group">
+                <label for="exampleInput1" class="bmd-label-floating"></label>
+                <input type="text" class="form-control" id="Txt_Status_Type">
+            </div>
+
+            <button class="btn btn-primary" id="Btn_Add">Add</button>
+            <button class="btn btn-primary" id="Btn_Edit">Edit</button>
+        </div>
+    </div>
+</div>
+
+
+
+<br />
+
+
+
+
+<div class="container">
+    <div class="card card-nav-tabs">
+        <div class="card-header card-header-primary">
+            Status Type Managment
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="Tbl_Status_Type">
+                    <thead>
+                        <tr>
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                Status Type
+                            </th>
+                            <th>
+                                Edit
+                            </th>
+                            <th>
+                                Delete
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-dark">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+@section scripts{
+    <script src="~/Content/Javascript/StatusManagment.js"></script>
+}

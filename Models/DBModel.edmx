@@ -1,0 +1,906 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ecommerceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tbl_Address">
+          <Key>
+            <PropertyRef Name="Address_Id" />
+          </Key>
+          <Property Name="Address_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_Id" Type="int" Nullable="false" />
+          <Property Name="Address_Type_Id" Type="int" />
+          <Property Name="Country" Type="varchar" MaxLength="255" />
+          <Property Name="City" Type="varchar" MaxLength="255" />
+          <Property Name="Town" Type="varchar" MaxLength="255" />
+          <Property Name="Zip_Code" Type="varchar" MaxLength="10" />
+          <Property Name="Street_Number" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Tbl_Address_Type">
+          <Key>
+            <PropertyRef Name="Address_Type_Id" />
+          </Key>
+          <Property Name="Address_Type_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Address_Type" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tbl_Contact">
+          <Key>
+            <PropertyRef Name="Contact_Id" />
+          </Key>
+          <Property Name="Contact_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_Id" Type="int" Nullable="false" />
+          <Property Name="Contact" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Contact_Type_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="Tbl_Contact_Type">
+          <Key>
+            <PropertyRef Name="Contact_Type_Id" />
+          </Key>
+          <Property Name="Contact_Type_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Contact_Type" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tbl_File">
+          <Key>
+            <PropertyRef Name="File_Id" />
+          </Key>
+          <Property Name="File_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_Id" Type="int" Nullable="false" />
+          <Property Name="File_Path" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="File_Type_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="Tbl_File_Type">
+          <Key>
+            <PropertyRef Name="File_Type_Id" />
+          </Key>
+          <Property Name="File_Type_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="File_Type" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tbl_Reg_Mode">
+          <Key>
+            <PropertyRef Name="Reg_Mode_Id" />
+          </Key>
+          <Property Name="Reg_Mode_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_Id" Type="int" Nullable="false" />
+          <Property Name="Reg_Mode_Type_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="Tbl_Reg_Mode_Type">
+          <Key>
+            <PropertyRef Name="Reg_Mode_Type_Id" />
+          </Key>
+          <Property Name="Reg_Mode_Type_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Reg_Mode_Type" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tbl_Role">
+          <Key>
+            <PropertyRef Name="Role_Id" />
+          </Key>
+          <Property Name="Role_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_Id" Type="int" Nullable="false" />
+          <Property Name="Role_Type_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="Tbl_Role_Type">
+          <Key>
+            <PropertyRef Name="Role_Type_Id" />
+          </Key>
+          <Property Name="Role_Type_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Role_Type" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tbl_Status">
+          <Key>
+            <PropertyRef Name="Status_Id" />
+          </Key>
+          <Property Name="Status_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_Id" Type="int" Nullable="false" />
+          <Property Name="Status_Type_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="Tbl_Status_Type">
+          <Key>
+            <PropertyRef Name="Status_Type_Id" />
+          </Key>
+          <Property Name="Status_Type_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status_Type" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tbl_User">
+          <Key>
+            <PropertyRef Name="User_Id" />
+          </Key>
+          <Property Name="User_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="70" />
+          <Property Name="Password" Type="varchar" MaxLength="70" />
+          <Property Name="Role_Type_Id" Type="int" />
+          <Property Name="Status_Type_Id" Type="int" />
+          <Property Name="Reg_Mode_Type_Id" Type="int" />
+          <Property Name="Address_Type_Id" Type="int" />
+          <Property Name="File_Type_Id" Type="int" />
+          <Property Name="Contact_Type_Id" Type="int" />
+        </EntityType>
+        <Association Name="FK__Tbl_Addre__Addre__4316F928">
+          <End Role="Tbl_Address_Type" Type="Self.Tbl_Address_Type" Multiplicity="0..1" />
+          <End Role="Tbl_Address" Type="Self.Tbl_Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Address_Type">
+              <PropertyRef Name="Address_Type_Id" />
+            </Principal>
+            <Dependent Role="Tbl_Address">
+              <PropertyRef Name="Address_Type_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tbl_Conta__Conta__45F365D3">
+          <End Role="Tbl_Contact_Type" Type="Self.Tbl_Contact_Type" Multiplicity="0..1" />
+          <End Role="Tbl_Contact" Type="Self.Tbl_Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Contact_Type">
+              <PropertyRef Name="Contact_Type_Id" />
+            </Principal>
+            <Dependent Role="Tbl_Contact">
+              <PropertyRef Name="Contact_Type_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tbl_File__File_T__48CFD27E">
+          <End Role="Tbl_File_Type" Type="Self.Tbl_File_Type" Multiplicity="0..1" />
+          <End Role="Tbl_File" Type="Self.Tbl_File" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_File_Type">
+              <PropertyRef Name="File_Type_Id" />
+            </Principal>
+            <Dependent Role="Tbl_File">
+              <PropertyRef Name="File_Type_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tbl_Reg_M__Reg_M__4BAC3F29">
+          <End Role="Tbl_Reg_Mode_Type" Type="Self.Tbl_Reg_Mode_Type" Multiplicity="0..1" />
+          <End Role="Tbl_Reg_Mode" Type="Self.Tbl_Reg_Mode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Reg_Mode_Type">
+              <PropertyRef Name="Reg_Mode_Type_Id" />
+            </Principal>
+            <Dependent Role="Tbl_Reg_Mode">
+              <PropertyRef Name="Reg_Mode_Type_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tbl_Role__Role_T__4E88ABD4">
+          <End Role="Tbl_Role_Type" Type="Self.Tbl_Role_Type" Multiplicity="0..1" />
+          <End Role="Tbl_Role" Type="Self.Tbl_Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Role_Type">
+              <PropertyRef Name="Role_Type_Id" />
+            </Principal>
+            <Dependent Role="Tbl_Role">
+              <PropertyRef Name="Role_Type_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tbl_Statu__Statu__5165187F">
+          <End Role="Tbl_Status_Type" Type="Self.Tbl_Status_Type" Multiplicity="0..1" />
+          <End Role="Tbl_Status" Type="Self.Tbl_Status" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Status_Type">
+              <PropertyRef Name="Status_Type_Id" />
+            </Principal>
+            <Dependent Role="Tbl_Status">
+              <PropertyRef Name="Status_Type_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_User_Tbl_Address_Type">
+          <End Role="Tbl_Address_Type" Type="Self.Tbl_Address_Type" Multiplicity="0..1" />
+          <End Role="Tbl_User" Type="Self.Tbl_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Address_Type">
+              <PropertyRef Name="Address_Type_Id" />
+            </Principal>
+            <Dependent Role="Tbl_User">
+              <PropertyRef Name="Address_Type_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_User_Tbl_Contact_Type">
+          <End Role="Tbl_Contact_Type" Type="Self.Tbl_Contact_Type" Multiplicity="0..1" />
+          <End Role="Tbl_User" Type="Self.Tbl_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Contact_Type">
+              <PropertyRef Name="Contact_Type_Id" />
+            </Principal>
+            <Dependent Role="Tbl_User">
+              <PropertyRef Name="Contact_Type_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_User_Tbl_File_Type">
+          <End Role="Tbl_File_Type" Type="Self.Tbl_File_Type" Multiplicity="0..1" />
+          <End Role="Tbl_User" Type="Self.Tbl_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_File_Type">
+              <PropertyRef Name="File_Type_Id" />
+            </Principal>
+            <Dependent Role="Tbl_User">
+              <PropertyRef Name="File_Type_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_User_Tbl_Reg_Mode_Type1">
+          <End Role="Tbl_Reg_Mode_Type" Type="Self.Tbl_Reg_Mode_Type" Multiplicity="0..1" />
+          <End Role="Tbl_User" Type="Self.Tbl_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Reg_Mode_Type">
+              <PropertyRef Name="Reg_Mode_Type_Id" />
+            </Principal>
+            <Dependent Role="Tbl_User">
+              <PropertyRef Name="Reg_Mode_Type_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_User_Tbl_Role_Type">
+          <End Role="Tbl_Role_Type" Type="Self.Tbl_Role_Type" Multiplicity="0..1" />
+          <End Role="Tbl_User" Type="Self.Tbl_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Role_Type">
+              <PropertyRef Name="Role_Type_Id" />
+            </Principal>
+            <Dependent Role="Tbl_User">
+              <PropertyRef Name="Role_Type_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_User_Tbl_Status_Type">
+          <End Role="Tbl_Status_Type" Type="Self.Tbl_Status_Type" Multiplicity="0..1" />
+          <End Role="Tbl_User" Type="Self.Tbl_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Status_Type">
+              <PropertyRef Name="Status_Type_Id" />
+            </Principal>
+            <Dependent Role="Tbl_User">
+              <PropertyRef Name="Status_Type_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="Insert_To_Tbl_Reg_Mode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="User_Id" Type="int" Mode="In" />
+          <Parameter Name="Reg_Mode_Type_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Insert_To_Tbl_Role" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="User_Id" Type="int" Mode="In" />
+          <Parameter Name="Role_Type_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Insert_To_Tbl_Status" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="User_Id" Type="int" Mode="In" />
+          <Parameter Name="Status_Type_Id" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="ecommerceModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Address" EntityType="Self.Tbl_Address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Address_Type" EntityType="Self.Tbl_Address_Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Contact" EntityType="Self.Tbl_Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Contact_Type" EntityType="Self.Tbl_Contact_Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_File" EntityType="Self.Tbl_File" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_File_Type" EntityType="Self.Tbl_File_Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Reg_Mode" EntityType="Self.Tbl_Reg_Mode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Reg_Mode_Type" EntityType="Self.Tbl_Reg_Mode_Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Role" EntityType="Self.Tbl_Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Role_Type" EntityType="Self.Tbl_Role_Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Status" EntityType="Self.Tbl_Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Status_Type" EntityType="Self.Tbl_Status_Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_User" EntityType="Self.Tbl_User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Tbl_Addre__Addre__4316F928" Association="Self.FK__Tbl_Addre__Addre__4316F928">
+            <End Role="Tbl_Address_Type" EntitySet="Tbl_Address_Type" />
+            <End Role="Tbl_Address" EntitySet="Tbl_Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tbl_Conta__Conta__45F365D3" Association="Self.FK__Tbl_Conta__Conta__45F365D3">
+            <End Role="Tbl_Contact_Type" EntitySet="Tbl_Contact_Type" />
+            <End Role="Tbl_Contact" EntitySet="Tbl_Contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tbl_File__File_T__48CFD27E" Association="Self.FK__Tbl_File__File_T__48CFD27E">
+            <End Role="Tbl_File_Type" EntitySet="Tbl_File_Type" />
+            <End Role="Tbl_File" EntitySet="Tbl_File" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tbl_Reg_M__Reg_M__4BAC3F29" Association="Self.FK__Tbl_Reg_M__Reg_M__4BAC3F29">
+            <End Role="Tbl_Reg_Mode_Type" EntitySet="Tbl_Reg_Mode_Type" />
+            <End Role="Tbl_Reg_Mode" EntitySet="Tbl_Reg_Mode" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tbl_Role__Role_T__4E88ABD4" Association="Self.FK__Tbl_Role__Role_T__4E88ABD4">
+            <End Role="Tbl_Role_Type" EntitySet="Tbl_Role_Type" />
+            <End Role="Tbl_Role" EntitySet="Tbl_Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tbl_Statu__Statu__5165187F" Association="Self.FK__Tbl_Statu__Statu__5165187F">
+            <End Role="Tbl_Status_Type" EntitySet="Tbl_Status_Type" />
+            <End Role="Tbl_Status" EntitySet="Tbl_Status" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_User_Tbl_Address_Type" Association="Self.FK_Tbl_User_Tbl_Address_Type">
+            <End Role="Tbl_Address_Type" EntitySet="Tbl_Address_Type" />
+            <End Role="Tbl_User" EntitySet="Tbl_User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_User_Tbl_Contact_Type" Association="Self.FK_Tbl_User_Tbl_Contact_Type">
+            <End Role="Tbl_Contact_Type" EntitySet="Tbl_Contact_Type" />
+            <End Role="Tbl_User" EntitySet="Tbl_User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_User_Tbl_File_Type" Association="Self.FK_Tbl_User_Tbl_File_Type">
+            <End Role="Tbl_File_Type" EntitySet="Tbl_File_Type" />
+            <End Role="Tbl_User" EntitySet="Tbl_User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_User_Tbl_Reg_Mode_Type1" Association="Self.FK_Tbl_User_Tbl_Reg_Mode_Type1">
+            <End Role="Tbl_Reg_Mode_Type" EntitySet="Tbl_Reg_Mode_Type" />
+            <End Role="Tbl_User" EntitySet="Tbl_User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_User_Tbl_Role_Type" Association="Self.FK_Tbl_User_Tbl_Role_Type">
+            <End Role="Tbl_Role_Type" EntitySet="Tbl_Role_Type" />
+            <End Role="Tbl_User" EntitySet="Tbl_User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_User_Tbl_Status_Type" Association="Self.FK_Tbl_User_Tbl_Status_Type">
+            <End Role="Tbl_Status_Type" EntitySet="Tbl_Status_Type" />
+            <End Role="Tbl_User" EntitySet="Tbl_User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ecommerceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Tbl_Address_Type">
+          <Key>
+            <PropertyRef Name="Address_Type_Id" />
+          </Key>
+          <Property Name="Address_Type_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Address_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tbl_Address" Relationship="ecommerceModel.FK__Tbl_Addre__Addre__4316F928" FromRole="Tbl_Address_Type" ToRole="Tbl_Address" />
+          <NavigationProperty Name="Tbl_User" Relationship="ecommerceModel.FK_Tbl_User_Tbl_Address_Type" FromRole="Tbl_Address_Type" ToRole="Tbl_User" />
+        </EntityType>
+        <EntityType Name="Tbl_Contact_Type">
+          <Key>
+            <PropertyRef Name="Contact_Type_Id" />
+          </Key>
+          <Property Name="Contact_Type_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Contact_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tbl_Contact" Relationship="ecommerceModel.FK__Tbl_Conta__Conta__45F365D3" FromRole="Tbl_Contact_Type" ToRole="Tbl_Contact" />
+          <NavigationProperty Name="Tbl_User" Relationship="ecommerceModel.FK_Tbl_User_Tbl_Contact_Type" FromRole="Tbl_Contact_Type" ToRole="Tbl_User" />
+        </EntityType>
+        <EntityType Name="Tbl_File_Type">
+          <Key>
+            <PropertyRef Name="File_Type_Id" />
+          </Key>
+          <Property Name="File_Type_Id" Type="Int32" Nullable="false" />
+          <Property Name="File_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tbl_File" Relationship="ecommerceModel.FK__Tbl_File__File_T__48CFD27E" FromRole="Tbl_File_Type" ToRole="Tbl_File" />
+          <NavigationProperty Name="Tbl_User" Relationship="ecommerceModel.FK_Tbl_User_Tbl_File_Type" FromRole="Tbl_File_Type" ToRole="Tbl_User" />
+        </EntityType>
+        <EntityType Name="Tbl_Reg_Mode_Type">
+          <Key>
+            <PropertyRef Name="Reg_Mode_Type_Id" />
+          </Key>
+          <Property Name="Reg_Mode_Type_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Reg_Mode_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tbl_Reg_Mode" Relationship="ecommerceModel.FK__Tbl_Reg_M__Reg_M__4BAC3F29" FromRole="Tbl_Reg_Mode_Type" ToRole="Tbl_Reg_Mode" />
+          <NavigationProperty Name="Tbl_User" Relationship="ecommerceModel.FK_Tbl_User_Tbl_Reg_Mode_Type" FromRole="Tbl_Reg_Mode_Type" ToRole="Tbl_User" />
+        </EntityType>
+        <EntityType Name="Tbl_Role_Type">
+          <Key>
+            <PropertyRef Name="Role_Type_Id" />
+          </Key>
+          <Property Name="Role_Type_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Role_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tbl_Role" Relationship="ecommerceModel.FK__Tbl_Role__Role_T__4E88ABD4" FromRole="Tbl_Role_Type" ToRole="Tbl_Role" />
+          <NavigationProperty Name="Tbl_User" Relationship="ecommerceModel.FK_Tbl_User_Tbl_Role_Type" FromRole="Tbl_Role_Type" ToRole="Tbl_User" />
+        </EntityType>
+        <EntityType Name="Tbl_Status_Type">
+          <Key>
+            <PropertyRef Name="Status_Type_Id" />
+          </Key>
+          <Property Name="Status_Type_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tbl_Status" Relationship="ecommerceModel.FK__Tbl_Statu__Statu__5165187F" FromRole="Tbl_Status_Type" ToRole="Tbl_Status" />
+          <NavigationProperty Name="Tbl_User" Relationship="ecommerceModel.FK_Tbl_User_Tbl_Status_Type" FromRole="Tbl_Status_Type" ToRole="Tbl_User" />
+        </EntityType>
+        <EntityContainer Name="ecommerceEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Tbl_Address_Type" EntityType="Self.Tbl_Address_Type" />
+          <EntitySet Name="Tbl_Contact_Type" EntityType="Self.Tbl_Contact_Type" />
+          <EntitySet Name="Tbl_File_Type" EntityType="Self.Tbl_File_Type" />
+          <EntitySet Name="Tbl_Reg_Mode_Type" EntityType="Self.Tbl_Reg_Mode_Type" />
+          <EntitySet Name="Tbl_Role_Type" EntityType="Self.Tbl_Role_Type" />
+          <EntitySet Name="Tbl_Status_Type" EntityType="Self.Tbl_Status_Type" />
+          <EntitySet Name="sysdiagrams" EntityType="ecommerceModel.sysdiagram" />
+          <EntitySet Name="Tbl_Address" EntityType="ecommerceModel.Tbl_Address" />
+          <EntitySet Name="Tbl_Contact" EntityType="ecommerceModel.Tbl_Contact" />
+          <EntitySet Name="Tbl_File" EntityType="ecommerceModel.Tbl_File" />
+          <EntitySet Name="Tbl_Reg_Mode" EntityType="ecommerceModel.Tbl_Reg_Mode" />
+          <EntitySet Name="Tbl_Role" EntityType="ecommerceModel.Tbl_Role" />
+          <EntitySet Name="Tbl_Status" EntityType="ecommerceModel.Tbl_Status" />
+          <AssociationSet Name="FK__Tbl_Addre__Addre__4316F928" Association="ecommerceModel.FK__Tbl_Addre__Addre__4316F928">
+            <End Role="Tbl_Address_Type" EntitySet="Tbl_Address_Type" />
+            <End Role="Tbl_Address" EntitySet="Tbl_Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tbl_Conta__Conta__45F365D3" Association="ecommerceModel.FK__Tbl_Conta__Conta__45F365D3">
+            <End Role="Tbl_Contact_Type" EntitySet="Tbl_Contact_Type" />
+            <End Role="Tbl_Contact" EntitySet="Tbl_Contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tbl_File__File_T__48CFD27E" Association="ecommerceModel.FK__Tbl_File__File_T__48CFD27E">
+            <End Role="Tbl_File_Type" EntitySet="Tbl_File_Type" />
+            <End Role="Tbl_File" EntitySet="Tbl_File" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tbl_Reg_M__Reg_M__4BAC3F29" Association="ecommerceModel.FK__Tbl_Reg_M__Reg_M__4BAC3F29">
+            <End Role="Tbl_Reg_Mode_Type" EntitySet="Tbl_Reg_Mode_Type" />
+            <End Role="Tbl_Reg_Mode" EntitySet="Tbl_Reg_Mode" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tbl_Role__Role_T__4E88ABD4" Association="ecommerceModel.FK__Tbl_Role__Role_T__4E88ABD4">
+            <End Role="Tbl_Role_Type" EntitySet="Tbl_Role_Type" />
+            <End Role="Tbl_Role" EntitySet="Tbl_Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tbl_Statu__Statu__5165187F" Association="ecommerceModel.FK__Tbl_Statu__Statu__5165187F">
+            <End Role="Tbl_Status_Type" EntitySet="Tbl_Status_Type" />
+            <End Role="Tbl_Status" EntitySet="Tbl_Status" />
+          </AssociationSet>
+          <EntitySet Name="Tbl_User" EntityType="ecommerceModel.Tbl_User" />
+          <AssociationSet Name="FK_Tbl_User_Tbl_Address_Type" Association="ecommerceModel.FK_Tbl_User_Tbl_Address_Type">
+            <End Role="Tbl_Address_Type" EntitySet="Tbl_Address_Type" />
+            <End Role="Tbl_User" EntitySet="Tbl_User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_User_Tbl_Contact_Type" Association="ecommerceModel.FK_Tbl_User_Tbl_Contact_Type">
+            <End Role="Tbl_Contact_Type" EntitySet="Tbl_Contact_Type" />
+            <End Role="Tbl_User" EntitySet="Tbl_User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_User_Tbl_File_Type" Association="ecommerceModel.FK_Tbl_User_Tbl_File_Type">
+            <End Role="Tbl_File_Type" EntitySet="Tbl_File_Type" />
+            <End Role="Tbl_User" EntitySet="Tbl_User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_User_Tbl_Reg_Mode" Association="ecommerceModel.FK_Tbl_User_Tbl_Reg_Mode">
+            <End Role="Tbl_Reg_Mode" EntitySet="Tbl_Reg_Mode" />
+            <End Role="Tbl_User" EntitySet="Tbl_User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_User_Tbl_Role_Type" Association="ecommerceModel.FK_Tbl_User_Tbl_Role_Type">
+            <End Role="Tbl_Role_Type" EntitySet="Tbl_Role_Type" />
+            <End Role="Tbl_User" EntitySet="Tbl_User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_User_Tbl_Status_Type" Association="ecommerceModel.FK_Tbl_User_Tbl_Status_Type">
+            <End Role="Tbl_Status_Type" EntitySet="Tbl_Status_Type" />
+            <End Role="Tbl_User" EntitySet="Tbl_User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_User_Tbl_Reg_Mode_Type" Association="ecommerceModel.FK_Tbl_User_Tbl_Reg_Mode_Type">
+            <End Role="Tbl_Reg_Mode_Type" EntitySet="Tbl_Reg_Mode_Type" />
+            <End Role="Tbl_User" EntitySet="Tbl_User" />
+          </AssociationSet>
+          <FunctionImport Name="Insert_To_Tbl_Reg_Mode">
+            <Parameter Name="User_Id" Mode="In" Type="Int32" />
+            <Parameter Name="Reg_Mode_Type_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Insert_To_Tbl_Role">
+            <Parameter Name="User_Id" Mode="In" Type="Int32" />
+            <Parameter Name="Role_Type_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Insert_To_Tbl_Status">
+            <Parameter Name="User_Id" Mode="In" Type="Int32" />
+            <Parameter Name="Status_Type_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Address">
+          <Key>
+            <PropertyRef Name="Address_Id" />
+          </Key>
+          <Property Name="Address_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_Id" Type="Int32" Nullable="false" />
+          <Property Name="Address_Type_Id" Type="Int32" />
+          <Property Name="Country" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Town" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Zip_Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Street_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tbl_Address_Type" Relationship="ecommerceModel.FK__Tbl_Addre__Addre__4316F928" FromRole="Tbl_Address" ToRole="Tbl_Address_Type" />
+        </EntityType>
+        <EntityType Name="Tbl_Contact">
+          <Key>
+            <PropertyRef Name="Contact_Id" />
+          </Key>
+          <Property Name="Contact_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_Id" Type="Int32" Nullable="false" />
+          <Property Name="Contact" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Contact_Type_Id" Type="Int32" />
+          <NavigationProperty Name="Tbl_Contact_Type" Relationship="ecommerceModel.FK__Tbl_Conta__Conta__45F365D3" FromRole="Tbl_Contact" ToRole="Tbl_Contact_Type" />
+        </EntityType>
+        <EntityType Name="Tbl_File">
+          <Key>
+            <PropertyRef Name="File_Id" />
+          </Key>
+          <Property Name="File_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_Id" Type="Int32" Nullable="false" />
+          <Property Name="File_Path" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="File_Type_Id" Type="Int32" />
+          <NavigationProperty Name="Tbl_File_Type" Relationship="ecommerceModel.FK__Tbl_File__File_T__48CFD27E" FromRole="Tbl_File" ToRole="Tbl_File_Type" />
+        </EntityType>
+        <EntityType Name="Tbl_Reg_Mode">
+          <Key>
+            <PropertyRef Name="Reg_Mode_Id" />
+          </Key>
+          <Property Name="Reg_Mode_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_Id" Type="Int32" Nullable="false" />
+          <Property Name="Reg_Mode_Type_Id" Type="Int32" />
+          <NavigationProperty Name="Tbl_Reg_Mode_Type" Relationship="ecommerceModel.FK__Tbl_Reg_M__Reg_M__4BAC3F29" FromRole="Tbl_Reg_Mode" ToRole="Tbl_Reg_Mode_Type" />
+          <NavigationProperty Name="Tbl_User" Relationship="ecommerceModel.FK_Tbl_User_Tbl_Reg_Mode" FromRole="Tbl_Reg_Mode" ToRole="Tbl_User" />
+        </EntityType>
+        <EntityType Name="Tbl_Role">
+          <Key>
+            <PropertyRef Name="Role_Id" />
+          </Key>
+          <Property Name="Role_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_Id" Type="Int32" Nullable="false" />
+          <Property Name="Role_Type_Id" Type="Int32" />
+          <NavigationProperty Name="Tbl_Role_Type" Relationship="ecommerceModel.FK__Tbl_Role__Role_T__4E88ABD4" FromRole="Tbl_Role" ToRole="Tbl_Role_Type" />
+        </EntityType>
+        <EntityType Name="Tbl_Status">
+          <Key>
+            <PropertyRef Name="Status_Id" />
+          </Key>
+          <Property Name="Status_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_Id" Type="Int32" Nullable="false" />
+          <Property Name="Status_Type_Id" Type="Int32" />
+          <NavigationProperty Name="Tbl_Status_Type" Relationship="ecommerceModel.FK__Tbl_Statu__Statu__5165187F" FromRole="Tbl_Status" ToRole="Tbl_Status_Type" />
+        </EntityType>
+        <Association Name="FK__Tbl_Addre__Addre__4316F928">
+          <End Type="ecommerceModel.Tbl_Address_Type" Role="Tbl_Address_Type" Multiplicity="0..1" />
+          <End Type="ecommerceModel.Tbl_Address" Role="Tbl_Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Address_Type">
+              <PropertyRef Name="Address_Type_Id" />
+            </Principal>
+            <Dependent Role="Tbl_Address">
+              <PropertyRef Name="Address_Type_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tbl_Conta__Conta__45F365D3">
+          <End Type="ecommerceModel.Tbl_Contact_Type" Role="Tbl_Contact_Type" Multiplicity="0..1" />
+          <End Type="ecommerceModel.Tbl_Contact" Role="Tbl_Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Contact_Type">
+              <PropertyRef Name="Contact_Type_Id" />
+            </Principal>
+            <Dependent Role="Tbl_Contact">
+              <PropertyRef Name="Contact_Type_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tbl_File__File_T__48CFD27E">
+          <End Type="ecommerceModel.Tbl_File_Type" Role="Tbl_File_Type" Multiplicity="0..1" />
+          <End Type="ecommerceModel.Tbl_File" Role="Tbl_File" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_File_Type">
+              <PropertyRef Name="File_Type_Id" />
+            </Principal>
+            <Dependent Role="Tbl_File">
+              <PropertyRef Name="File_Type_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tbl_Reg_M__Reg_M__4BAC3F29">
+          <End Type="ecommerceModel.Tbl_Reg_Mode_Type" Role="Tbl_Reg_Mode_Type" Multiplicity="0..1" />
+          <End Type="ecommerceModel.Tbl_Reg_Mode" Role="Tbl_Reg_Mode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Reg_Mode_Type">
+              <PropertyRef Name="Reg_Mode_Type_Id" />
+            </Principal>
+            <Dependent Role="Tbl_Reg_Mode">
+              <PropertyRef Name="Reg_Mode_Type_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tbl_Role__Role_T__4E88ABD4">
+          <End Type="ecommerceModel.Tbl_Role_Type" Role="Tbl_Role_Type" Multiplicity="0..1" />
+          <End Type="ecommerceModel.Tbl_Role" Role="Tbl_Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Role_Type">
+              <PropertyRef Name="Role_Type_Id" />
+            </Principal>
+            <Dependent Role="Tbl_Role">
+              <PropertyRef Name="Role_Type_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tbl_Statu__Statu__5165187F">
+          <End Type="ecommerceModel.Tbl_Status_Type" Role="Tbl_Status_Type" Multiplicity="0..1" />
+          <End Type="ecommerceModel.Tbl_Status" Role="Tbl_Status" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Status_Type">
+              <PropertyRef Name="Status_Type_Id" />
+            </Principal>
+            <Dependent Role="Tbl_Status">
+              <PropertyRef Name="Status_Type_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Tbl_User">
+          <Key>
+            <PropertyRef Name="User_Id" />
+          </Key>
+          <Property Name="User_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Role_Type_Id" Type="Int32" />
+          <Property Name="Status_Type_Id" Type="Int32" />
+          <Property Name="Reg_Mode_Type_Id" Type="Int32" />
+          <Property Name="Address_Type_Id" Type="Int32" />
+          <Property Name="File_Type_Id" Type="Int32" />
+          <Property Name="Contact_Type_Id" Type="Int32" />
+          <NavigationProperty Name="Tbl_Address_Type" Relationship="ecommerceModel.FK_Tbl_User_Tbl_Address_Type" FromRole="Tbl_User" ToRole="Tbl_Address_Type" />
+          <NavigationProperty Name="Tbl_Contact_Type" Relationship="ecommerceModel.FK_Tbl_User_Tbl_Contact_Type" FromRole="Tbl_User" ToRole="Tbl_Contact_Type" />
+          <NavigationProperty Name="Tbl_File_Type" Relationship="ecommerceModel.FK_Tbl_User_Tbl_File_Type" FromRole="Tbl_User" ToRole="Tbl_File_Type" />
+          <NavigationProperty Name="Tbl_Reg_Mode" Relationship="ecommerceModel.FK_Tbl_User_Tbl_Reg_Mode" FromRole="Tbl_User" ToRole="Tbl_Reg_Mode" />
+          <NavigationProperty Name="Tbl_Role_Type" Relationship="ecommerceModel.FK_Tbl_User_Tbl_Role_Type" FromRole="Tbl_User" ToRole="Tbl_Role_Type" />
+          <NavigationProperty Name="Tbl_Status_Type" Relationship="ecommerceModel.FK_Tbl_User_Tbl_Status_Type" FromRole="Tbl_User" ToRole="Tbl_Status_Type" />
+          <NavigationProperty Name="Tbl_Reg_Mode_Type" Relationship="ecommerceModel.FK_Tbl_User_Tbl_Reg_Mode_Type" FromRole="Tbl_User" ToRole="Tbl_Reg_Mode_Type" />
+        </EntityType>
+        <Association Name="FK_Tbl_User_Tbl_Address_Type">
+          <End Type="ecommerceModel.Tbl_Address_Type" Role="Tbl_Address_Type" Multiplicity="0..1" />
+          <End Type="ecommerceModel.Tbl_User" Role="Tbl_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Address_Type">
+              <PropertyRef Name="Address_Type_Id" />
+            </Principal>
+            <Dependent Role="Tbl_User">
+              <PropertyRef Name="Address_Type_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_User_Tbl_Contact_Type">
+          <End Type="ecommerceModel.Tbl_Contact_Type" Role="Tbl_Contact_Type" Multiplicity="0..1" />
+          <End Type="ecommerceModel.Tbl_User" Role="Tbl_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Contact_Type">
+              <PropertyRef Name="Contact_Type_Id" />
+            </Principal>
+            <Dependent Role="Tbl_User">
+              <PropertyRef Name="Contact_Type_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_User_Tbl_File_Type">
+          <End Type="ecommerceModel.Tbl_File_Type" Role="Tbl_File_Type" Multiplicity="0..1" />
+          <End Type="ecommerceModel.Tbl_User" Role="Tbl_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_File_Type">
+              <PropertyRef Name="File_Type_Id" />
+            </Principal>
+            <Dependent Role="Tbl_User">
+              <PropertyRef Name="File_Type_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_User_Tbl_Reg_Mode">
+          <End Type="ecommerceModel.Tbl_Reg_Mode" Role="Tbl_Reg_Mode" Multiplicity="0..1" />
+          <End Type="ecommerceModel.Tbl_User" Role="Tbl_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Reg_Mode">
+              <PropertyRef Name="Reg_Mode_Id" />
+            </Principal>
+            <Dependent Role="Tbl_User">
+              <PropertyRef Name="Reg_Mode_Type_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_User_Tbl_Role_Type">
+          <End Type="ecommerceModel.Tbl_Role_Type" Role="Tbl_Role_Type" Multiplicity="0..1" />
+          <End Type="ecommerceModel.Tbl_User" Role="Tbl_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Role_Type">
+              <PropertyRef Name="Role_Type_Id" />
+            </Principal>
+            <Dependent Role="Tbl_User">
+              <PropertyRef Name="Role_Type_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_User_Tbl_Status_Type">
+          <End Type="ecommerceModel.Tbl_Status_Type" Role="Tbl_Status_Type" Multiplicity="0..1" />
+          <End Type="ecommerceModel.Tbl_User" Role="Tbl_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Status_Type">
+              <PropertyRef Name="Status_Type_Id" />
+            </Principal>
+            <Dependent Role="Tbl_User">
+              <PropertyRef Name="Status_Type_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_User_Tbl_Reg_Mode_Type">
+          <End Type="ecommerceModel.Tbl_Reg_Mode_Type" Role="Tbl_Reg_Mode_Type" Multiplicity="0..1" />
+          <End Type="ecommerceModel.Tbl_User" Role="Tbl_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Reg_Mode_Type">
+              <PropertyRef Name="Reg_Mode_Type_Id" />
+            </Principal>
+            <Dependent Role="Tbl_User">
+              <PropertyRef Name="Reg_Mode_Type_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ecommerceModelStoreContainer" CdmEntityContainer="ecommerceEntities1">
+          <EntitySetMapping Name="Tbl_Address_Type">
+            <EntityTypeMapping TypeName="ecommerceModel.Tbl_Address_Type">
+              <MappingFragment StoreEntitySet="Tbl_Address_Type">
+                <ScalarProperty Name="Address_Type_Id" ColumnName="Address_Type_Id" />
+                <ScalarProperty Name="Address_Type" ColumnName="Address_Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Contact_Type">
+            <EntityTypeMapping TypeName="ecommerceModel.Tbl_Contact_Type">
+              <MappingFragment StoreEntitySet="Tbl_Contact_Type">
+                <ScalarProperty Name="Contact_Type_Id" ColumnName="Contact_Type_Id" />
+                <ScalarProperty Name="Contact_Type" ColumnName="Contact_Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_File_Type">
+            <EntityTypeMapping TypeName="ecommerceModel.Tbl_File_Type">
+              <MappingFragment StoreEntitySet="Tbl_File_Type">
+                <ScalarProperty Name="File_Type_Id" ColumnName="File_Type_Id" />
+                <ScalarProperty Name="File_Type" ColumnName="File_Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Reg_Mode_Type">
+            <EntityTypeMapping TypeName="ecommerceModel.Tbl_Reg_Mode_Type">
+              <MappingFragment StoreEntitySet="Tbl_Reg_Mode_Type">
+                <ScalarProperty Name="Reg_Mode_Type_Id" ColumnName="Reg_Mode_Type_Id" />
+                <ScalarProperty Name="Reg_Mode_Type" ColumnName="Reg_Mode_Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Role_Type">
+            <EntityTypeMapping TypeName="ecommerceModel.Tbl_Role_Type">
+              <MappingFragment StoreEntitySet="Tbl_Role_Type">
+                <ScalarProperty Name="Role_Type_Id" ColumnName="Role_Type_Id" />
+                <ScalarProperty Name="Role_Type" ColumnName="Role_Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Status_Type">
+            <EntityTypeMapping TypeName="ecommerceModel.Tbl_Status_Type">
+              <MappingFragment StoreEntitySet="Tbl_Status_Type">
+                <ScalarProperty Name="Status_Type_Id" ColumnName="Status_Type_Id" />
+                <ScalarProperty Name="Status_Type" ColumnName="Status_Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="ecommerceModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Address">
+            <EntityTypeMapping TypeName="ecommerceModel.Tbl_Address">
+              <MappingFragment StoreEntitySet="Tbl_Address">
+                <ScalarProperty Name="Street_Number" ColumnName="Street_Number" />
+                <ScalarProperty Name="Zip_Code" ColumnName="Zip_Code" />
+                <ScalarProperty Name="Town" ColumnName="Town" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Address_Type_Id" ColumnName="Address_Type_Id" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="Address_Id" ColumnName="Address_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Contact">
+            <EntityTypeMapping TypeName="ecommerceModel.Tbl_Contact">
+              <MappingFragment StoreEntitySet="Tbl_Contact">
+                <ScalarProperty Name="Contact_Type_Id" ColumnName="Contact_Type_Id" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="Contact_Id" ColumnName="Contact_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_File">
+            <EntityTypeMapping TypeName="ecommerceModel.Tbl_File">
+              <MappingFragment StoreEntitySet="Tbl_File">
+                <ScalarProperty Name="File_Type_Id" ColumnName="File_Type_Id" />
+                <ScalarProperty Name="File_Path" ColumnName="File_Path" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="File_Id" ColumnName="File_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Reg_Mode">
+            <EntityTypeMapping TypeName="ecommerceModel.Tbl_Reg_Mode">
+              <MappingFragment StoreEntitySet="Tbl_Reg_Mode">
+                <ScalarProperty Name="Reg_Mode_Type_Id" ColumnName="Reg_Mode_Type_Id" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="Reg_Mode_Id" ColumnName="Reg_Mode_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Role">
+            <EntityTypeMapping TypeName="ecommerceModel.Tbl_Role">
+              <MappingFragment StoreEntitySet="Tbl_Role">
+                <ScalarProperty Name="Role_Type_Id" ColumnName="Role_Type_Id" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="Role_Id" ColumnName="Role_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Status">
+            <EntityTypeMapping TypeName="ecommerceModel.Tbl_Status">
+              <MappingFragment StoreEntitySet="Tbl_Status">
+                <ScalarProperty Name="Status_Type_Id" ColumnName="Status_Type_Id" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="Status_Id" ColumnName="Status_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_User">
+            <EntityTypeMapping TypeName="ecommerceModel.Tbl_User">
+              <MappingFragment StoreEntitySet="Tbl_User">
+                <ScalarProperty Name="Contact_Type_Id" ColumnName="Contact_Type_Id" />
+                <ScalarProperty Name="File_Type_Id" ColumnName="File_Type_Id" />
+                <ScalarProperty Name="Address_Type_Id" ColumnName="Address_Type_Id" />
+                <ScalarProperty Name="Reg_Mode_Type_Id" ColumnName="Reg_Mode_Type_Id" />
+                <ScalarProperty Name="Status_Type_Id" ColumnName="Status_Type_Id" />
+                <ScalarProperty Name="Role_Type_Id" ColumnName="Role_Type_Id" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Insert_To_Tbl_Reg_Mode" FunctionName="ecommerceModel.Store.Insert_To_Tbl_Reg_Mode" />
+          <FunctionImportMapping FunctionImportName="Insert_To_Tbl_Role" FunctionName="ecommerceModel.Store.Insert_To_Tbl_Role" />
+          <FunctionImportMapping FunctionImportName="Insert_To_Tbl_Status" FunctionName="ecommerceModel.Store.Insert_To_Tbl_Status" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
